@@ -30,6 +30,8 @@ suites:
   attributes:
     sensu:
       use_ssl: false
+    sensu-server-wrapper:
+      iptables_enabled: false
     sensu-client-wrapper:
       name: hoge
       ipaddress: 127.0.0.1
