@@ -26,6 +26,18 @@ remote_file "/etc/sensu/plugins/check-procs.rb" do
   mode 0755
 end
 
+# Installing check-disk
+remote_file "/etc/sensu/plugins/check-disk.rb" do
+  source "https://github.com/sensu/sensu-community-plugins/raw/master/plugins/system/check-disk.rb"
+  mode 0755
+end
+
+# Installing check-cpu
+remote_file "/etc/sensu/plugins/check-cpu.rb" do
+  source "https://github.com/sensu/sensu-community-plugins/raw/master/plugins/system/check-cpu.rb"
+  mode 0755
+end
+
 # Installing load-metric
 remote_file "/etc/sensu/plugins/load-metrics.rb" do
   source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb"
