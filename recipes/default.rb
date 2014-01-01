@@ -38,6 +38,12 @@ remote_file "/etc/sensu/plugins/check-cpu.rb" do
   mode 0755
 end
 
+# Installing check-ram
+remote_file "/etc/sensu/plugins/check-ram.rb" do
+  source "https://github.com/sensu/sensu-community-plugins/raw/master/plugins/system/check-ram.rb"
+  mode 0755
+end
+
 # Installing load-metric
 remote_file "/etc/sensu/plugins/load-metrics.rb" do
   source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb"
