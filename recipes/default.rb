@@ -50,6 +50,12 @@ remote_file "/etc/sensu/plugins/load-metrics.rb" do
   mode 0755
 end
 
+# Installing vmstat-metrics.rb
+remote_file "/etc/sensu/plugins/vmstat-metrics.rb" do
+  source "https://github.com/sensu/sensu-community-plugins/raw/master/plugins/system/vmstat-metrics.rb"
+  mode 0755
+end
+
 service "sensu-client" do
   action :restart
 end
