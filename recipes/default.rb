@@ -9,8 +9,13 @@
 
 include_recipe "sensu::default"
 
+ipaddress = node["sensu-client-wrapper"]["ipaddress"];
+if not ipaddress then
+  ipaddress = node["ipaddress"]
+end
+
 sensu_client node["sensu-client-wrapper"]["name"] do
-  address node["sensu-client-wrapper"]["ipaddress"]
+  address ipaddress
   subscriptions node["sensu-client-wrapper"]["roles"] + ["all"]
 end
 
