@@ -8,6 +8,6 @@ default["sensu"]["rabbitmq"]["password"] = "password"
 # initial dummy environment
 default["sensu-client-wrapper"]["name"] = "server01"
 default["sensu-client-wrapper"]["ipaddress"] = false 
-default["sensu-client-wrapper"]["role"] = "server"
+default["sensu-client-wrapper"]["role"] = ["server"]
 
 # vim: filetype=ruby.chef
