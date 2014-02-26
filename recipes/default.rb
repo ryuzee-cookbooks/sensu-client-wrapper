@@ -9,12 +9,20 @@
 
 include_recipe "sensu::default"
 
-ipaddress = node["sensu-client-wrapper"]["ipaddress"];
-if not ipaddress then
+if node["sensu-client-wrapper"]["ipaddress"] then
+  ipaddress = node["sensu-client-wrapper"]["ipaddress"]
+else
   ipaddress = node["ipaddress"]
 end
 
-sensu_client node["sensu-client-wrapper"]["name"] do
+if node["sensu-client-wrapper"]["name"] then
+  node_name = node["sensu-client-wrapper"]["name"]
+else
+  node_name = node["hostname"]
+end
+node_name.gsub!(/[^A-z0-9]+/,".")
+
+sensu_client node_name do
   address ipaddress
   subscriptions node["sensu-client-wrapper"]["roles"] + ["all"]
 end
