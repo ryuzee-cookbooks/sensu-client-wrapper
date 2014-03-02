@@ -7,13 +7,6 @@
 # This software is released under the MIT License.
 # http://opensource.org/licenses/mit-license.php
 
-if node["sensu-client-wrapper"]["name"] then
-  node_name = node["sensu-client-wrapper"]["name"]
-else
-  node_name = node["hostname"]
-end
-node_name.gsub!(/[^A-z0-9]+/,".")
-
 if platform_family?("rhel")
   template "/etc/rc.d/init.d/sensu-client-remove" do
     source "sensu-client-remove.erb"

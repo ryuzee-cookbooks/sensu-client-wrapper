@@ -15,12 +15,7 @@ else
   ipaddress = node["ipaddress"]
 end
 
-if node["sensu-client-wrapper"]["name"] then
-  node_name = node["sensu-client-wrapper"]["name"]
-else
-  node_name = node["hostname"]
-end
-node_name.gsub!(/[^\w\.\-]+/,".")
+#node_name = node_name() # from helper
 
 sensu_client node_name do
   address ipaddress
