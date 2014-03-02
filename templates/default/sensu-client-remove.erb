@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# sensu-client-remove     delete sensu-client
+#
+# chkconfig: 0 08 89 
+
+VAR_SUBSYS_SENSU_CLIENT_REMOVE="/var/lock/subsys/sensu-client-remove"
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+case "$1" in
+    start)
+        [ -f "$VAR_SUBSYS_SENSU_CLIENT_REMOVE" ] && exit 0
+        touch $VAR_SUBSYS_SENSU_CLIENT_REMOVE
+        RETVAL=$?
+        ;;
+    stop)
+        echo "Removing client from Sensu Server..."
+        curl -X DELETE http://<%= node["sensu"]["api"]["host"] %>:<%= node["sensu"]["api"]["port"] %>/client/<%= @node_name %>
+        RETVAL=$?
+        \rm $VAR_SUBSYS_SENSU_CLIENT_REMOVE
+        ;;
+esac
+exit $RETVAL

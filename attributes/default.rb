@@ -4,6 +4,8 @@ default["sensu"]["rabbitmq"]["host"] = "localhost"
 default["sensu"]["rabbitmq"]["port"] = 5672
 default["sensu"]["rabbitmq"]["user"] = "admin"
 default["sensu"]["rabbitmq"]["password"] = "password"
+default["sensu"]["api"]["host"] = "localhost"
+default["sensu"]["api"]["port"] = 9000 
 
 # initial dummy environment
 default["sensu-client-wrapper"]["name"] = false 
