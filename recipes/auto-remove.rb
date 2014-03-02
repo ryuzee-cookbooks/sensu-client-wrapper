@@ -23,6 +23,6 @@ execute "/sbin/chkconfig --level 2345 sensu-client-remove on" do
   action :run
 end
 
-service "sensu-client-remove" do
-  action [:start ]
+execute "/etc/rc.d/init.d/sensu-client-remove start" do
+  action :run
 end
