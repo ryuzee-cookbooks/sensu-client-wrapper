@@ -1,3 +1,12 @@
+#
+# Cookbook Name:: sensu-client-wrapper
+# Recipe:: auto-remove 
+#
+# Copyright 2013, Ryutaro YOSHIBA 
+#
+# This software is released under the MIT License.
+# http://opensource.org/licenses/mit-license.php
+
 if node["sensu-client-wrapper"]["name"] then
   node_name = node["sensu-client-wrapper"]["name"]
 else
