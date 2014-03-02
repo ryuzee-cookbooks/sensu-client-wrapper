@@ -20,7 +20,7 @@ if node["sensu-client-wrapper"]["name"] then
 else
   node_name = node["hostname"]
 end
-node_name.gsub!(/[^A-z0-9]+/,".")
+node_name.gsub!(/[^\w\.\-]+/,".")
 
 sensu_client node_name do
   address ipaddress
