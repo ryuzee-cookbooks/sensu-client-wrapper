@@ -15,7 +15,7 @@ else
   ipaddress = node["ipaddress"]
 end
 
-#node_name = node_name() # from helper
+node_name = node_name() # from helper
 
 sensu_client node_name do
   address ipaddress
