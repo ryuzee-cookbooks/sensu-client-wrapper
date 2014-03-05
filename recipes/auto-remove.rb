@@ -19,7 +19,7 @@ if platform_family?("rhel")
       :node_name => node_name
     })
   end
-  
+
   execute "/sbin/chkconfig --level 0 sensu-client-remove off" do
     action :run
   end
