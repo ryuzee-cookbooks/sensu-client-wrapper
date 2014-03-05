@@ -20,15 +20,7 @@ if platform_family?("rhel")
     })
   end
 
-  execute "/sbin/chkconfig --level 0 sensu-client-remove off" do
-    action :run
-  end
-  
-  execute "/sbin/chkconfig --level 2345 sensu-client-remove on" do
-    action :run
-  end
-  
-  execute "/etc/rc.d/init.d/sensu-client-remove start" do
-    action :run
+  service "sensu-client-remove" do
+    action [:enable, :restart]
   end
 end
