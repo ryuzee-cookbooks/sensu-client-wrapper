@@ -19,7 +19,11 @@ node_name = node_name() # from helper
 
 sensu_client node_name do
   address ipaddress
-  subscriptions node["sensu-client-wrapper"]["roles"] + ["all"]
+  if node["sensu-client-wrapper"]["roles"] then  
+    subscriptions node["sensu-client-wrapper"]["roles"] + ["all"]
+  else
+    subscriptions ["all"]
+  end
 end
 
 execute "chmod 644 /etc/sensu/conf.d/client.json" do

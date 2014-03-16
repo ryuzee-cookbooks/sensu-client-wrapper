@@ -21,6 +21,11 @@ if platform_family?("rhel")
   end
 
   service "sensu-client-remove" do
+    supports :start => true, :stop => true, :restart => true
     action [:enable, :restart]
+  end
+
+  execute "/sbin/chkconfig --level 0 sensu-client-remove off" do
+    action :run
   end
 end

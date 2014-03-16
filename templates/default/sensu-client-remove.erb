@@ -2,7 +2,7 @@
 #
 # sensu-client-remove     delete sensu-client
 #
-# chkconfig: 0 08 89 
+# chkconfig: 2345 89 89 
 # description: remove client from Sensu Server automatically when terminating this instance
 
 VAR_SUBSYS_SENSU_CLIENT_REMOVE="/var/lock/subsys/sensu-client-remove"
@@ -11,6 +11,11 @@ VAR_SUBSYS_SENSU_CLIENT_REMOVE="/var/lock/subsys/sensu-client-remove"
 . /etc/rc.d/init.d/functions
 case "$1" in
     start)
+        [ -f "$VAR_SUBSYS_SENSU_CLIENT_REMOVE" ] && exit 0
+        touch $VAR_SUBSYS_SENSU_CLIENT_REMOVE
+        RETVAL=$?
+        ;;
+    restart)
         [ -f "$VAR_SUBSYS_SENSU_CLIENT_REMOVE" ] && exit 0
         touch $VAR_SUBSYS_SENSU_CLIENT_REMOVE
         RETVAL=$?
