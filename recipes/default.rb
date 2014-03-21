@@ -40,19 +40,19 @@ end
 
 # Installing check-disk
 remote_file "/etc/sensu/plugins/check-disk.rb" do
-  source "https://github.com/sensu/sensu-community-plugins/raw/master/plugins/system/check-disk.rb"
+  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/check-disk.rb"
   mode 0755
 end
 
 # Installing check-cpu
 remote_file "/etc/sensu/plugins/check-cpu.rb" do
-  source "https://github.com/sensu/sensu-community-plugins/raw/master/plugins/system/check-cpu.rb"
+  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/check-cpu.rb"
   mode 0755
 end
 
 # Installing check-ram
 remote_file "/etc/sensu/plugins/check-ram.rb" do
-  source "https://github.com/sensu/sensu-community-plugins/raw/master/plugins/system/check-ram.rb"
+  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/check-ram.rb"
   mode 0755
 end
 
@@ -64,7 +64,7 @@ end
 
 # Installing vmstat-metrics.rb
 remote_file "/etc/sensu/plugins/vmstat-metrics.rb" do
-  source "https://github.com/sensu/sensu-community-plugins/raw/master/plugins/system/vmstat-metrics.rb"
+  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/vmstat-metrics.rb"
   mode 0755
 end
 
