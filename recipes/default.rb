@@ -68,6 +68,12 @@ remote_file "/etc/sensu/plugins/vmstat-metrics.rb" do
   mode 0755
 end
 
+# Installing disk-usage-metrics.rb
+remote_file "/etc/sensu/plugins/vmstat-metrics.rb" do
+  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/disk-usage-metrics.rb"
+  mode 0755
+end
+
 service "sensu-client" do
   action :restart
 end
