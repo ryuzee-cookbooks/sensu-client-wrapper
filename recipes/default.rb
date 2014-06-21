@@ -24,6 +24,8 @@ sensu_client node_name do
   else
     subscriptions ["all"]
   end
+  kp = { :thresholds => { :warning => 30, :critical => 300 }, :refresh => 1800, :handlers => ["debug"] }
+  keepalive kp
 end
 
 execute "chmod 644 /etc/sensu/conf.d/client.json" do
