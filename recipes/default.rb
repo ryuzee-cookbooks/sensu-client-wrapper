@@ -24,7 +24,7 @@ sensu_client node_name do
   else
     subscriptions ["all"]
   end
-  kp = { :thresholds => { :warning => 30, :critical => 300 }, :refresh => 1800, :handlers => ["debug"] }
+  kp = { :thresholds => { :warning => 15, :critical => 120 }, :refresh => 1800, :handlers => ["debug"] }
   keepalive kp
 end
 
