@@ -17,6 +17,12 @@ end
 
 node_name = node_name() # from helper
 
+# Watching sensu configuration
+file "/etc/sensu/conf.d/client.json" do
+  action :nothing
+  notifies :restart, "service[sensu-client]"
+end
+
 sensu_client node_name do
   address ipaddress
   if node["sensu-client-wrapper"]["roles"] then  
