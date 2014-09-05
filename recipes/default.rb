@@ -42,49 +42,56 @@ include_recipe "sensu::client_service"
 
 # Installing check-procs
 remote_file "/etc/sensu/plugins/check-procs.rb" do
-  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/processes/check-procs.rb"
+  source "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/processes/check-procs.rb"
   mode 0755
   notifies :restart, "service[sensu-client]"
 end
 
 # Installing check-disk
 remote_file "/etc/sensu/plugins/check-disk.rb" do
-  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/check-disk.rb"
+  source "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/check-disk.rb"
   mode 0755
   notifies :restart, "service[sensu-client]"
 end
 
 # Installing check-cpu
 remote_file "/etc/sensu/plugins/check-cpu.rb" do
-  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/check-cpu.rb"
+  source "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/check-cpu.rb"
   mode 0755
   notifies :restart, "service[sensu-client]"
 end
 
 # Installing check-ram
 remote_file "/etc/sensu/plugins/check-ram.rb" do
-  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/check-ram.rb"
+  source "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/check-ram.rb"
+  mode 0755
+  notifies :restart, "service[sensu-client]"
+end
+
+# Installing check-http
+remote_file "/etc/sensu/plugins/check-ram.rb" do
+  source "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/http/check-http.rb"
   mode 0755
   notifies :restart, "service[sensu-client]"
 end
 
 # Installing load-metric
 remote_file "/etc/sensu/plugins/load-metrics.rb" do
-  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb"
+  source "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/load-metrics.rb"
   mode 0755
   notifies :restart, "service[sensu-client]"
 end
 
 # Installing vmstat-metrics.rb
 remote_file "/etc/sensu/plugins/vmstat-metrics.rb" do
-  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/vmstat-metrics.rb"
+  source "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/vmstat-metrics.rb"
   mode 0755
   notifies :restart, "service[sensu-client]"
 end
 
 # Installing disk-usage-metrics.rb
 remote_file "/etc/sensu/plugins/disk-usage-metrics.rb" do
-  source "https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/disk-usage-metrics.rb"
+  source "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/disk-usage-metrics.rb"
   mode 0755
   notifies :restart, "service[sensu-client]"
 end
