@@ -69,7 +69,7 @@ remote_file "/etc/sensu/plugins/check-ram.rb" do
 end
 
 # Installing check-http
-remote_file "/etc/sensu/plugins/check-ram.rb" do
+remote_file "/etc/sensu/plugins/check-http.rb" do
   source "https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/http/check-http.rb"
   mode 0755
   notifies :restart, "service[sensu-client]"
