@@ -7,6 +7,11 @@
 # This software is released under the MIT License.
 # http://opensource.org/licenses/mit-license.php
 
+case node["platform"]
+when "centos", "redhat", "amazon", "scientific", "fedora"
+  include_recipe "ca-certificates::default"
+end
+
 include_recipe "sensu::default"
 
 if node["sensu-client-wrapper"]["ipaddress"] then
