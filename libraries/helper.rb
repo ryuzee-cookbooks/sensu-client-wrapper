@@ -1,10 +1,10 @@
 class Chef
   class Recipe
     def node_name
-      if @node["sensu-client-wrapper"]["name"] then
+      begin
         node_name = @node["sensu-client-wrapper"]["name"]
-      else
-        node_name = Chef::Config[:node_name]
+      rescue
+        node_name = Chef::Config[:node_name] || @node[:hostname]
       end
       node_name.gsub!(/[^\w\.\-]+/,".")
       return node_name
