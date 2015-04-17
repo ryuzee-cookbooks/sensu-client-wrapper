@@ -6,4 +6,4 @@ description      'Installs/Configures sensu-client'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.5.1'
 depends          'ca-certificates'
-depends          'sensu', '~> 2.2'
+depends          'sensu', '>= 2.2.0'
